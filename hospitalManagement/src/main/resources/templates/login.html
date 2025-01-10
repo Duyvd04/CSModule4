@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <title>Login</title>
+</head>
+<body>
+
+<h3>Login</h3>
+
+<!-- Thông báo lỗi nếu có -->
+<p th:if="${error}">
+  Lỗi đăng nhập. Vui lòng kiểm tra lại thông tin.
+</p>
+
+<!-- Form đăng nhập -->
+<form name="f" action="/login" method="POST">
+  <table>
+    <tr>
+      <td>User:</td>
+      <td><input type="text" name="username" th:value="${username}"></td>
+    </tr>
+    <tr>
+      <td>Password:</td>
+      <td><input type="password" name="password"></td>
+    </tr>
+    <tr>
+      <td>Remember Me?</td>
+      <td><input type="checkbox" name="remember-me" /></td>
+    </tr>
+    <tr>
+      <td><input name="submit" type="submit" value="Login" /></td>
+    </tr>
+  </table>
+</form>
+
+<!-- Thông báo đăng xuất thành công nếu có -->
+<div th:if="${logout}">
+  <p style="color: green;">Bạn đã đăng xuất thành công.</p>
+</div>
+
+</body>
+</html>

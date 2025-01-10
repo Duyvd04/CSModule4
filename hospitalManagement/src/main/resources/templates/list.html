@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Doctor Profile</title>
+</head>
+<body>
+<h1>Doctor Profile</h1>
+<!-- Thêm liên kết để chuyển đến danh sách bệnh nhân của bác sĩ -->
+<!-- Liên kết đến danh sách bệnh nhân của bác sĩ -->
+<a th:href="@{/doctor/{id}/patients(id=${doctor.id})}">Xem bệnh nhân</a>
+
+
+
+<table>
+    <thead>
+    <tr>
+        <th>Mã</th>
+        <th>Họ và tên </th>
+        <th>Địa chỉ</th>
+        <th>Chuyên khoa </th>
+        <th>Số điện thoại</th>
+        <th>Email </th>
+        <th>Giới tính </th>
+        <th>Kinh nghiệm</th>
+        <
+    </tr>
+    </thead>
+
+    <tbody>
+    <!-- Loop through the list of doctors -->
+    <tr th:each="s, l : ${doctor}">
+        <td th:text="${s.id}"></td>
+        <td th:text="${s.doctorName}"></td>
+        <td th:text="${s.doctorAddress}"></td>
+        <td th:text="${s.specialty}"></td>
+        <td th:text="${s.doctorPhone}"></td>
+        <td th:text="${s.doctorEmail}"></td>
+        <td th:text="${s.gender}"></td>
+        <td th:text="${s.experienceYears}"></td>
+
+    </tr>
+
+
+    </tbody>
+</table>
+<tbody>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Patient List</title>
+</head>
+<body>
+<h1>Patients</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Mã bệnh nhân </th>
+        <th>Họ và tên </th>
+        <th>Ngày Sinh</th>
+        <th>Giới tính</th>
+        <th>Số điện thoại</th>
+        <th>Tuổi</th>
+        <th>Địa Chỉ </th>
+        <th>Chẩn đoán</th>
+        <th>Điều trị</th>
+        <th>Hành động </th>
+    </tr>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="patient : ${patients}">
+        <td th:text="${patient.id}"></td>
+        <td th:text="${patient.fullName}"></td>
+        <td th:text="${patient.dob}"></td>
+        <td th:text="${patient.gender}"></td>
+        <td th:text="${patient.phone}"></td>
+        <td th:text="${patient.age}"></td>
+        <td th:text="${patient.address}"></td>
+        <td th:each="record : ${patient.medicalRecords}" th:text="${record.diagnosis}"></td>
+        <td th:each="record : ${patient.medicalRecords}" th:text="${record.treatment}"></td>
+        <td>
+        <td>
+            <a th:href="@{/doctor/delete(id=${patient.id})}">Delete</a>
+        </td>
+
+
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
